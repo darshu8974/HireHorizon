@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { JobProvider } from './Jobcontext';
+import { CompanyProvider } from '../CompanyContext'; // Ensure correct import
+import AddJobPage from './AddJobPage';
+import JobSearchPage from './jobsearchpage';
+import AddCompanies from './Admin/Addcompanies';
+import RemoveCompanies from './Removecompanies';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <JobProvider>
+      <CompanyProvider>
+        <AddJobPage />
+        <JobSearchPage />
+        <AddCompanies />
+        <RemoveCompanies />
+        {/* Other components */}
+      </CompanyProvider>
+    </JobProvider>
   );
 }
 
